@@ -14,3 +14,6 @@ notifications:
   email: false
 after_success:
   - julia -e 'using Pkg; Pkg.add("Coverage"); using Coverage; Codecov.submit(process_folder())'
+julia --code-coverage test/runtests.jl
+#!/bin/bash
+REPO_TOKEN=e3a8f74c-6232-4b37-b2f7-b4407b78e5da julia -e 'cd(Pkg.dir("MyPkg")); using Coverage;  Codecov.submit_token(Codecov.process_folder())'
